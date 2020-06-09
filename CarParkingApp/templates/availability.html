@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="{{ url_for('register') }}">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Availibilty</legend>
+                <div class="form-group">
+                    {{ form.City.label(class="form-control-label") }}
+                    {{ form.City(class="form-control form-control-lg") }}
+                   
+                </div>
+                <div class="form-group">
+                    {{ form.Area.label(class="form-control-label") }}
+                    {{ form.Area(class="form-control form-control-lg") }}
+                </div>
+                <div class="form-group">
+                    {{ form.ShoppingMall.label(class="form-control-label") }}
+                    {{ form.ShoppingMall(class="form-control form-control-lg") }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+
+        </form>
+    </div>
+
+{% endblock content %}
