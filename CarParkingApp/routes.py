@@ -1,8 +1,11 @@
+import pyqrcode 
+import png 
 from flask import render_template, url_for, flash, redirect,request
 from CarParkingApp import app, db, bcrypt
 from CarParkingApp.forms import RegistrationForm, LoginForm,AvailabilityForm
 from CarParkingApp.models import User, ParkingLot
 from flask_login import login_user,current_user,logout_user,login_required
+from pyqrcode import QRCode 
 
 @app.route("/")
 @app.route("/home")
@@ -61,4 +64,12 @@ def logout():
 @login_required
 def account(): 
      return render_template('account.html', title='Account')
+
+@app.route("/myTicket")
+@login_required
+def myTicket(): 
+    url = pyqrcode.create(current_user.car_number) 
+    image=url.png('CarParkingApp\static\myqr.png', scale = 6)
+    return render_template('myTicket.html', title='My Ticket')     
+
         

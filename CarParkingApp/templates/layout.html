@@ -30,11 +30,13 @@
               <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
               <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
               <a class="nav-item nav-link" href="{{ url_for('availability') }}">Availibilty</a>
+
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
                 {% if current_user.is_authenticated %}
                   <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
+                  <a class="nav-item nav-link" href="{{ url_for('myTicket') }}">My Ticket</a>
                   <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
                 {% else %}
                   <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
