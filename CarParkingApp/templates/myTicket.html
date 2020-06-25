@@ -1,8 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
 <div justify-content="center">
+    <h1>MY Ticket</h1>
+    {%set data= data.decode('utf-8')%}
     
-    <img src="{{ url_for('static', filename='myqr.png')}}" alt="Bar code for Car" width="400" height="400" > 
+
+    
+    <img src="data:image/png;base64, {{data}}" alt="Bar code for Car" width="400" height="400" > 
 
 </div>
 

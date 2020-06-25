@@ -1,10 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section">
-        <form method="POST" action="{{ url_for('register') }}">
+        <h1>Check Availibilty</h1>
+        <form method="GET" action="{{ url_for('slots') }}">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Availibilty</legend>
+                
                 <div class="form-group">
                     {{ form.City.label(class="form-control-label") }}
                     {{ form.City(class="form-control form-control-lg") }}

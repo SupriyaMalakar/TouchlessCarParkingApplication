@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
     id=db.Column(db.Integer,primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     Phone_number = db.Column(db.String(10), unique=True, nullable=False)
-    car_number = db.Column(db.String(11), unique=True, nullable=False)
+    car_number = db.Column(db.String(9), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
     ParkingLot = db.relationship('ParkingLot', backref='Owner', lazy=True)
@@ -29,7 +29,7 @@ class ParkingLot(db.Model):
     ParkingLot_name = db.Column(db.String(100), nullable=False)
     Entry_Time = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     Exit_Time = db.Column(db.DateTime, nullable=True)
-    user_id = db.Column(db.String(11), db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
         return f"Post('{self.car_number}', '{self.Entry_Time}')"

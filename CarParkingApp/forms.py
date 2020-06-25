@@ -10,7 +10,7 @@ class RegistrationForm(FlaskForm):
     Phone_number = StringField('Mobile Number',
                            validators=[DataRequired(), Length(min=10, max=10)])
     car_number = StringField('Car Registration Number',
-                           validators=[DataRequired(), Length(min=11, max=11)])                                           
+                           validators=[DataRequired(), Length(min=9, max=9)])                                           
 
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
@@ -40,11 +40,11 @@ class LoginForm(FlaskForm):
 
 class AvailabilityForm(FlaskForm):
     City = SelectField('City',
-                         choices=[('KOL', 'Kolkata'), ('MUM', 'Mumbai'), ('Che', 'Chennai')])
+                         choices=[('KOL', 'Kolkata'), ('MUM', 'Mumbai'), ('Che', 'Chennai')],validators=[DataRequired()])
                          
 
     Area = SelectField('Area',
-                         choices=['North','South','East','West'] )
+                         choices=['North','South','East','West'],validators=[DataRequired()] )
     ShoppingMall = SelectField('Shopping Mall',
-                         choices=['South City Mall','Axis Mall','Acropolis Mall'])
+                         choices=['South City Mall','Axis Mall','Acropolis Mall'],validators=[DataRequired()])
     submit = SubmitField('Check Availibility')   

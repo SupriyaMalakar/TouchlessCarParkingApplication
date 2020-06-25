@@ -1,0 +1,56 @@
+<style>
+.button {
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+  }
+
+  .button3 {
+    border: none;
+    color: rgb(109, 104, 104);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+  }
+  
+  .button1 {background-color: #4CAF50;} /* Green */
+  .button2 {background-color: rgb(174, 250, 174);}
+  </style>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+{% extends "layout.html" %}
+{% block content %}
+<h1>Parking Slots</h1>
+<p>Parking charge : 20/hours</p>
+
+{% set counter=0 %}
+{% set count=5 %}
+{% for x in range(14) %}
+  
+  {% if loop.index <= count %}
+    <button class="button3 button2" style="margin-left:25px;margin-right:25px;font-size:36px" disabled>
+    <i class='fas fa-car-side'></i></button>
+    
+    
+  {% else %}
+    
+    <button class="button button1" style="margin-left:25px;margin-right:25px;font-size:36px">
+    <i class='fas fa-car-side'></i></button>
+  
+  {% endif %} 
+  {% if loop.index%2==0 %}
+  <br>
+  {% endif %} 
+  
+  
+  {% endfor %}
+{% endblock content %}
